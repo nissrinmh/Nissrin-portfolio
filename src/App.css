@@ -624,9 +624,11 @@
 
 .hero-card:hover .hero-bg-image {
   transform: scale(1.02);
+
 }
 
 .hero-overlay {
+  
   position: absolute;
   inset: 0;
   z-index: 2;
