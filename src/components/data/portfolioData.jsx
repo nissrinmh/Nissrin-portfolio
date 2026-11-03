@@ -141,22 +141,10 @@ export const skills = [
 // ─── Experiences (home timeline) ────────────────────────────────────────────
 export const experiences = [
   {
-    period: '01/2026 - 06/2026',
-    role: 'Stage Développeuse Web — CodeTrend',
-    description: 'Développement de 5 plateformes : Location Car, Scobe, Indiana Decor, Coopérative Sahara, ParaForYou.',
-    active: true,
-  },
-  {
-    period: '04/2025 - 05/2025',
-    role: 'Stage Développeuse Web (Remote) — 2mCrafters',
-    description: 'Conception de solutions SIRH (Pointage & Absences) et Coach Me pour Horizon RH.',
-    active: false,
-  },
-  {
     period: '2023 - 2025',
     role: 'Technicienne Spécialisée en Développement Digital - Full Stack',
     description: "L'Institut Spécialisé dans les Métiers de l'Offshoring et les Nouvelles Technologies de l'Information et de la Communication (ISMONTIC) de Tanger",
-    active: false,
+    active: true,
   },
   {
     period: '2019 - 2022',
