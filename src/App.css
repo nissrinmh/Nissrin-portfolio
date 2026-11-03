@@ -1110,10 +1110,7 @@
 }
 
 .bento-card {
-  background-color: #0e1118; /* solid fallback for browsers where backdrop-filter fails */
   background: var(--bg-card);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   padding: 28px;

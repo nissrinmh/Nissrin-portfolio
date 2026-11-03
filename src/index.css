@@ -5,10 +5,10 @@
   /* Backgrounds */
   --bg-primary: #090b0f;
   --bg-secondary: #0d1017;
-  --bg-card: rgba(14, 17, 24, 0.92);
-  --bg-card-hover: rgba(22, 27, 38, 0.96);
-  --bg-card-dark: rgba(11, 14, 20, 0.94);
-  --bg-glass: rgba(14, 18, 26, 0.88);
+  --bg-card: #0e1118;
+  --bg-card-hover: #161b26;
+  --bg-card-dark: #0b0e14;
+  --bg-glass: #0e121a;
   
   /* Exact Warm Amber / Copper / Peach Border Palette */
   --border-copper-subtle: rgba(226, 148, 98, 0.22);
