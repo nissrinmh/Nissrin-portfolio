@@ -1,11 +1,14 @@
-
 import { Search, ArrowUpRight } from 'lucide-react';
+import Logo from './common/Logo';
 
 export default function TopBar({ setIsSearchOpen, handleNavClick }) {
   return (
     <header className="top-nav">
-      <div className="tagline-code">
-        &#123; <span>Innovation</span> | <span>Design</span> | <span>Code</span> | <span>Impact</span> &#125;
+      <div className="top-brand-lockup" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <Logo size={34}  onClick={() => handleNavClick('home')} />
+        <div className="tagline-code">
+          &#123; <span>Innovation</span> | <span>Design</span> | <span>Code</span> | <span>Impact</span> &#125;
+        </div>
       </div>
 
       <div className="top-actions">
