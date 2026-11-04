@@ -486,6 +486,8 @@
   flex-direction: column;
   gap: 26px;
   min-width: 0;
+  position: relative;
+  z-index: 2;
 }
 
 /* Top Navigation Bar */
@@ -882,6 +884,9 @@
    FEATURED PROJECTS SECTION — EXACT GLOWING COPPER RIM BORDER
    ========================================================================== */
 .projects-container-card {
+  position: relative;
+  z-index: 1;
+  background-color: #0e1118;
   background: var(--bg-card);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
@@ -1110,7 +1115,12 @@
 }
 
 .bento-card {
+  position: relative;
+  z-index: 1;
+  background-color: #0e1118;
   background: var(--bg-card);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   padding: 28px;
@@ -1436,6 +1446,8 @@
    FOOTER
    ========================================================================== */
 .footer-bar {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;

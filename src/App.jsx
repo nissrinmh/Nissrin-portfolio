@@ -67,8 +67,7 @@ export default function App() {
 
   // ── Render ───────────────────────────────────────────────────────────────
   return (
-    <div className="portfolio-container">
-
+    <>
       {/* ── Site-wide Corner Botanicals & Fairy Lights ── */}
       <div className="site-corner-botanicals" aria-hidden="true">
         <div className="corner-botanical-wrap corner-top">
@@ -80,8 +79,9 @@ export default function App() {
         <div className="site-botanical-vignette" />
       </div>
 
-      {/* ── Left Sidebar ── */}
-      <Sidebar activeNav={activeNav} handleNavClick={handleNavClick} />
+      <div className="portfolio-container">
+        {/* ── Left Sidebar ── */}
+        <Sidebar activeNav={activeNav} handleNavClick={handleNavClick} />
 
       {/* ── Main Content Area ── */}
       <main className="main-content">
@@ -164,5 +164,6 @@ export default function App() {
       />
 
     </div>
+    </>
   );
 }
