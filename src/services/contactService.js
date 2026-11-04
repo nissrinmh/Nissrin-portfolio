@@ -1,72 +1,41 @@
+import emailjs from '@emailjs/browser';
+
 export const TARGET_EMAIL = 'nissrinmahan02@gmail.com';
 
+// ─────────────────────────────────────────────
+// 🔧 REMPLACEZ CES 3 VALEURS PAR VOSS IDENTIFIANTS EMAILJS
+//    Dashboard EmailJS → Email Services  → Service ID
+//    Dashboard EmailJS → Email Templates → Template ID
+//    Dashboard EmailJS → Account         → Public Key
+// ─────────────────────────────────────────────
+const EMAILJS_SERVICE_ID  = 'service_9of2zn5';
+const EMAILJS_TEMPLATE_ID = 'template_3qu7hmq';
+const EMAILJS_PUBLIC_KEY  = 'p3Ubdwh8vGhUWxugS';
+
 /**
- * Envoie les données du formulaire directement à l'adresse email cible.
- * Formaté sous forme textuelle et soignée (SANS TABLEAU), avec soulignement
- * et mise en évidence claire des éléments essentiels.
+ * Envoie les données du formulaire via EmailJS (aucun backend requis).
  */
 export async function sendContactMessage({ name, email, message, service, project }) {
-  const currentDate = new Date().toLocaleString('fr-FR', {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-
-  const subject = project
-    ? `[Portfolio] ✉️ Nouveau message de ${name} — Projet : ${project}`
-    : `[Portfolio] ✉️ Nouveau message de ${name}${service ? ` (${service})` : ''}`;
-
-  // Texte soigné avec soulignement des sections clés
-  const formattedMessage = [
-    '====================================================',
-    '📌 INFORMATIONS ESSENTIELLES (EXPÉDITEUR)',
-    '====================================================',
-    `• Nom complet : ${name}`,
-    `• Email de réponse : ${email}`,
-    project ? `• Projet concerné : ${project}` : `• Besoin / Service : ${service || 'Contact direct'}`,
-    `• Date & Heure : ${currentDate}`,
-    '',
-    '----------------------------------------------------',
-    '💬 CONTENU DU MESSAGE :',
-    '----------------------------------------------------',
-    message,
-    '====================================================',
-  ].join('\n');
-
-  // Remarque : aucun champ utilisateur ne doit commencer par '_'
-  // car FormSubmit traite les clés commençant par '_' comme des configurations cachées et les ignore.
-  const payload = {
-    _template: 'box', // Style épuré en encadré (pas de tableau HTML)
-    _subject: subject,
-    _replyto: email,
-    _captcha: 'false',
-    'Nom': name,
-    'Email': email,
-    ...(project ? { 'Projet concerné': project } : {}),
-    ...(service ? { 'Besoin / Prestation': service } : {}),
-    'Date de réception': currentDate,
-    'Message détaillé': formattedMessage,
+  const templateParams = {
+    from_name: name,   // utilisé dans le Subject : {{from_name}}
+    name:      name,   // utilisé dans le Body    : {{name}}
+    reply_to:  email,  // utilisé dans Reply To   : {{reply_to}}
+    message:   message,
+    service:   project || service || 'Contact direct',
   };
 
-  const response = await fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    },
-    body: JSON.stringify(payload),
-  });
+  const result = await emailjs.send(
+    EMAILJS_SERVICE_ID,
+    EMAILJS_TEMPLATE_ID,
+    templateParams,
+    EMAILJS_PUBLIC_KEY
+  );
 
-  const data = await response.json().catch(() => ({}));
-
-  if (!response.ok || (data && data.success === 'false')) {
-    throw new Error(data?.message || "Échec de l'envoi du message.");
+  if (result.status !== 200) {
+    throw new Error("Échec de l'envoi du message. Veuillez réessayer.");
   }
 
-  return data;
+  return result;
 }
 
 /**
