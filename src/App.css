@@ -3322,7 +3322,7 @@
 /* Micro-grid of projects inside stage cards */
 .exp-projects-mini-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 8px;
   margin: 2px 0;
 }
@@ -5428,6 +5428,38 @@
   .contact-assurance-sep {
     display: none;
   }
+
+  /* ── Experience Page Mobile (768px) ── */
+  .exp-col-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .exp-filter-pills {
+    width: 100%;
+    gap: 6px;
+  }
+
+  .exp-filter-pills .filter-pill {
+    font-size: 11.5px;
+    padding: 5px 11px;
+    gap: 5px;
+  }
+
+  .exp-page-content {
+    padding: 22px 16px;
+    gap: 20px;
+  }
+
+  .exp-projects-mini-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .exp-timeline-item {
+    gap: 10px;
+  }
 }
 
 /* ── 4. Standard Smartphones (<= 480px) ── */
@@ -5552,6 +5584,48 @@
 
   .contact-form-card {
     padding: 18px 14px;
+  }
+
+  /* ── Experience Page Mobile (480px) ── */
+  .exp-timeline-card {
+    padding: 14px 14px;
+    gap: 10px;
+  }
+
+  .exp-timeline-item {
+    gap: 8px;
+  }
+
+  .exp-dot-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .exp-timeline-dot {
+    width: 30px;
+  }
+
+  .exp-role {
+    font-size: 15px;
+  }
+
+  .exp-page-title {
+    font-size: 20px;
+  }
+
+  .exp-col-title {
+    font-size: 15px;
+  }
+
+  .exp-filter-pills .filter-pill {
+    font-size: 11px;
+    padding: 5px 9px;
+    gap: 4px;
+  }
+
+  .exp-projects-mini-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
   }
 }
 

@@ -71,14 +71,14 @@ export default function ContactPage({ handleNavClick }) {
 
         {/* Top Navigation */}
         <div className="contact-page-top-bar">
-          <button
+          {/* <button
             type="button"
             className="contact-back-btn"
             onClick={() => handleNavClick('home')}
           >
             <ArrowLeft size={16} />
             <span>Retour à l'accueil</span>
-          </button>
+          </button> */}
           <div className="contact-header-badge">
             <span className="contact-code-bracket">&lt;</span>
             <span className="contact-badge-title">Contact &amp; Collaborations</span>

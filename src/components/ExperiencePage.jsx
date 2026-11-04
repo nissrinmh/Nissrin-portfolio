@@ -113,10 +113,10 @@ export default function ExperiencePage({ handleNavClick }) {
 
         {/* Top Nav */}
         <div className="exp-page-top-bar">
-          <button type="button" className="exp-back-btn" onClick={() => handleNavClick('home')}>
+          {/* <button type="button" className="exp-back-btn" onClick={() => handleNavClick('home')}>
             <ArrowLeft size={16} />
             <span>Retour à l'accueil</span>
-          </button>
+          </button> */}
           <div className="exp-header-badge">
             <span className="exp-code-bracket">&lt;</span>
             <span className="exp-badge-title">Mon Parcours &amp; Expérience</span>
