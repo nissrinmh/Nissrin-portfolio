@@ -8,7 +8,7 @@ import {
 import skillsBg from '../assets/skills-bg.jpg';
 
 export default function ExperiencePage({ handleNavClick }) {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState('experience');
 
   const timeline = [
     {
@@ -294,7 +294,7 @@ export default function ExperiencePage({ handleNavClick }) {
             </div>
 
             {/* Certifications & Formations */}
-            <div className="exp-side-card">
+            {/* <div className="exp-side-card">
               <div className="exp-side-card-header">
                 <div className="exp-side-icon-box"><CheckCircle2 size={16} /></div>
                 <h3 className="exp-side-title">Certifications &amp; Veille</h3>
@@ -315,7 +315,7 @@ export default function ExperiencePage({ handleNavClick }) {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Disponibilité */}
             <div className="exp-availability-card">

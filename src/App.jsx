@@ -26,6 +26,7 @@ export default function App() {
   const [isSearchOpen,     setIsSearchOpen]     = useState(false);
   const [searchQuery,      setSearchQuery]      = useState('');
   const [projectFilter,    setProjectFilter]    = useState('all');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // ── Keyboard shortcut: Cmd/Ctrl + K  &  Escape ──────────────────────────
   useEffect(() => {
@@ -38,6 +39,7 @@ export default function App() {
         setIsSearchOpen(false);
         setSelectedProject(null);
         setIsContactOpen(false);
+        setIsMobileMenuOpen(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -47,6 +49,7 @@ export default function App() {
   // ── Navigation ───────────────────────────────────────────────────────────
   const handleNavClick = (sectionId) => {
     setActiveNav(sectionId);
+    setIsMobileMenuOpen(false);
     if (['about', 'projects', 'skills', 'experience', 'contact'].includes(sectionId)) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
@@ -80,14 +83,24 @@ export default function App() {
       </div>
 
       <div className="portfolio-container">
-        {/* ── Left Sidebar ── */}
-        <Sidebar activeNav={activeNav} handleNavClick={handleNavClick} />
+        {/* ── Left Sidebar (Desktop Dock & Mobile Drawer) ── */}
+        <Sidebar
+          activeNav={activeNav}
+          handleNavClick={handleNavClick}
+          isMobileOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+        />
 
-      {/* ── Main Content Area ── */}
-      <main className="main-content">
+        {/* ── Main Content Area ── */}
+        <main className="main-content">
 
-        {/* Top Bar */}
-        <TopBar setIsSearchOpen={setIsSearchOpen} handleNavClick={handleNavClick} />
+          {/* Top Bar with Mobile Menu Toggle */}
+          <TopBar
+            setIsSearchOpen={setIsSearchOpen}
+            handleNavClick={handleNavClick}
+            onToggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)}
+            isMobileOpen={isMobileMenuOpen}
+          />
 
         {/* Page Routing */}
         {activeNav === 'about' ? (

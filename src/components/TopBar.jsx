@@ -1,11 +1,27 @@
-import { Search, ArrowUpRight } from 'lucide-react';
+import { Search, ArrowUpRight, Menu, X } from 'lucide-react';
 import Logo from './common/Logo';
 
-export default function TopBar({ setIsSearchOpen, handleNavClick }) {
+export default function TopBar({
+  setIsSearchOpen,
+  handleNavClick,
+  onToggleMobileMenu,
+  isMobileOpen = false,
+}) {
   return (
     <header className="top-nav">
-      <div className="top-brand-lockup" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-        <Logo size={34}  onClick={() => handleNavClick('home')} />
+      <div className="top-brand-lockup">
+        {/* Hamburger Menu Toggle (Visible on Tablets & Phones <= 1024px) */}
+        <button
+          type="button"
+          className="mobile-menu-trigger-btn"
+          onClick={onToggleMobileMenu}
+          aria-label={isMobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+        >
+          {isMobileOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+
+        <Logo size={34} onClick={() => handleNavClick('home')} />
+
         <div className="tagline-code">
           &#123; <span>Innovation</span> | <span>Design</span> | <span>Code</span> | <span>Impact</span> &#125;
         </div>
